@@ -1,1 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>First Idea Coaching | Learn Today, Lead Tomorrow</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:#172033;
+    line-height:1.6;
+    background:#fff;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#4f46e5;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a{
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#4f46e5;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:650px;
+    padding:80px 8%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+    background:linear-gradient(135deg,#eef2ff,#fff);
+}
+
+.hero-content{
+    max-width:650px;
+    animation:slideUp .8s ease;
+}
+
+.small-title{
+    color:#4f46e5;
+    font-weight:800;
+    letter-spacing:2px;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:clamp(45px,6vw,75px);
+    line-height:1.05;
+    margin:15px 0;
+}
+
+.hero h1 span{
+    color:#4f46e5;
+}
+
+.hero p{
+    font-size:18px;
+    color:#596579;
+    max-width:600px;
+}
+
+.hero-buttons{
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    display:inline-block;
+    border:0;
+    cursor:pointer;
+    background:#4f46e5;
+    color:#fff;
+    padding:14px 25px;
+    border-radius:8px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(79,70,229,.25);
+}
+
+.secondary{
+    background:#fff;
+    color:#4f46e5;
+    border:1px solid #4f46e5;
+}
+
+.hero-card{
+    width:330px;
+    padding:50px 30px;
+    text-align:center;
+    border-radius:25px;
+    background:#4f46e5;
+    color:white;
+    box-shadow:0 25px 50px rgba(79,70,229,.3);
+    animation:float 3s infinite ease-in-out;
+}
+
+.hero-card .icon{
+    font-size:65px;
+}
+
+.hero-card h3{
+    font-size:28px;
+    margin:15px 0;
+}
+
+/* SECTIONS */
+
+.section{
+    padding:90px 8%;
+}
+
+.light{
+    background:#f7f8fc;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title p{
+    color:#4f46e5;
+    font-weight:800;
+    letter-spacing:2px;
+    font-size:13px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-top:8px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-grid h3{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.about-grid p{
+    color:#667085;
+    margin-bottom:15px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.stats div{
+    padding:30px;
+    background:white;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.stats strong{
+    display:block;
+    color:#4f46e5;
+    font-size:32px;
+}
+
+.stats span{
+    color:#667085;
+}
+
+/* CARDS */
+
+.class-grid,
+.teacher-grid,
+.testimonial-grid,
+.notes-grid,
+.fee-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.class-card{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.class-card:hover,
+.note-card:hover,
+.teacher-card:hover{
+    transform:translateY(-7px);
+}
+
+.class-card span{
+    color:#4f46e5;
+    font-weight:800;
+    font-size:18px;
+}
+
+.class-card h3{
+    margin:10px 0 5px;
+}
+
+/* SUBJECTS */
+
+.subject-table{
+    max-width:1000px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.subject-row{
+    display:grid;
+    grid-template-columns:25% 75%;
+    padding:18px 25px;
+    background:#fff;
+    border-bottom:1px solid #eee;
+}
+
+.subject-row.heading{
+    background:#4f46e5;
+    color:#fff;
+    font-weight:bold;
+}
+
+/* FEES */
+
+.fee-card{
+    position:relative;
+    background:#fff;
+    padding:35px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.07);
+}
+
+.fee-card h2{
+    color:#4f46e5;
+    margin:20px 0;
+}
+
+.fee-card h2 span{
+    font-size:14px;
+    color:#777;
+}
+
+.fee-card p{
+    margin:12px 0;
+    color:#667085;
+}
+
+.fee-card button{
+    margin-top:15px;
+    border:0;
+    padding:12px 20px;
+    background:#4f46e5;
+    color:white;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.featured{
+    border:2px solid #4f46e5;
+}
+
+.popular{
+    position:absolute;
+    top:-13px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#4f46e5;
+    color:#fff;
+    padding:5px 15px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+/* NOTES */
+
+.note-card{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.note-card span{
+    font-size:35px;
+}
+
+.note-card h3{
+    margin:12px 0;
+}
+
+.note-card p{
+    color:#667085;
+}
+
+.note-card a{
+    display:inline-block;
+    margin-top:18px;
+    color:#4f46e5;
+    font-weight:bold;
+}
+
+/* TEACHERS */
+
+.teacher-card{
+    background:#fff;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.teacher-photo{
+    width:100px;
+    height:100px;
+    margin:auto;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:#eef2ff;
+    font-size:45px;
+}
+
+.teacher-card p,
+.teacher-card small{
+    color:#667085;
+}
+
+/* TESTIMONIALS */
+
+.testimonial{
+    padding:30px;
+    border-radius:15px;
+    background:#f7f8fc;
+}
+
+.testimonial div{
+    color:#f59e0b;
+    margin-bottom:15px;
+}
+
+.testimonial p{
+    color:#596579;
+    margin-bottom:15px;
+}
+
+/* ADMISSION */
+
+.admission{
+    background:linear-gradient(135deg,#eef2ff,#fff);
+}
+
+form{
+    max-width:700px;
+    margin:auto;
+    display:grid;
+    gap:15px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:15px;
+    border:1px solid #d9dce5;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#4f46e5;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+#formMessage{
+    text-align:center;
+    font-weight:bold;
+}
+
+/* CONTACT */
+
+.contact{
+    padding:70px 8%;
+    background:#171b2e;
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.contact-info{
+    line-height:2;
+}
+
+.contact-info a:hover{
+    color:#a5b4fc;
+}
+
+/* FOOTER */
+
+footer{
+    padding:25px;
+    text-align:center;
+    background:#0f1220;
+    color:#aaa;
+}
+
+/* ANIMATIONS */
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#fff;
+        padding:20px;
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding:70px 6%;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero-card{
+        width:100%;
+        max-width:330px;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .class-grid,
+    .teacher-grid,
+    .testimonial-grid,
+    .notes-grid,
+    .fee-grid{
+        grid-template-columns:1fr;
+    }
+
+    .subject-row{
+        grid-template-columns:35% 65%;
+        font-size:14px;
+    }
+
+    .section{
+        padding:70px 6%;
+    }
+
+    .contact{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+<nav class="navbar">
+
+<div class="logo">
+First Idea <span>Coaching</span>
+</div>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#classes">Classes</a></li>
+<li><a href="#fees">Fees</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#teachers">Teachers</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+</header>
+
+
+<!-- HERO -->
+<section id="home" class="hero">
+
+<div class="hero-content">
+
+<p class="small-title">
+WELCOME TO FIRST IDEA COACHING
+</p>
+
+<h1>
+Learn Today,<br>
+<span>Lead Tomorrow.</span>
+</h1>
+
+<p>
+Quality education, experienced teachers and personal guidance
+for students from Class 6 to 12.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#admission" class="btn">
+Join Now
+</a>
+
+<a href="#classes" class="btn secondary">
+Explore Classes
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="icon">🎓</div>
+
+<h3>Classes 6–12</h3>
+
+<p>
+Strong Foundation • Better Results • Brighter Future
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="section">
+
+<div class="section-title">
+
+<p>WHO WE ARE</p>
+
+<h2>About First Idea Coaching</h2>
+
+</div>
+
+
+<div class="about-grid">
+
+<div>
+
+<h3>
+Building Knowledge. Creating Futures.
+</h3>
+
+<p>
+First Idea Coaching is a student-focused coaching institute
+providing quality academic support for Classes 6 to 12.
+Our goal is to make learning simple, practical and effective.
+</p>
+
+<p>
+We focus on concept clarity, regular practice, doubt solving
+and individual attention.
+</p>
+
+</div>
+
+
+<div class="stats">
+
+<div>
+<strong>500+</strong>
+<span>Students</span>
+</div>
+
+<div>
+<strong>15+</strong>
+<span>Teachers</span>
+</div>
+
+<div>
+<strong>10+</strong>
+<span>Years Experience</span>
+</div>
+
+<div>
+<strong>95%</strong>
+<span>Success Rate*</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CLASSES -->
+<section id="classes" class="section light">
+
+<div class="section-title">
+
+<p>ACADEMIC PROGRAMS</p>
+
+<h2>Classes We Offer</h2>
+
+</div>
+
+
+<div class="class-grid">
+
+<div class="class-card">
+<span>06</span>
+<h3>Class 6</h3>
+<p>Foundation Program</p>
+</div>
+
+<div class="class-card">
+<span>07</span>
+<h3>Class 7</h3>
+<p>Foundation Program</p>
+</div>
+
+<div class="class-card">
+<span>08</span>
+<h3>Class 8</h3>
+<p>Foundation Program</p>
+</div>
+
+<div class="class-card">
+<span>09</span>
+<h3>Class 9</h3>
+<p>Board Preparation</p>
+</div>
+
+<div class="class-card">
+<span>10</span>
+<h3>Class 10</h3>
+<p>Board Excellence</p>
+</div>
+
+<div class="class-card">
+<span>11</span>
+<h3>Class 11</h3>
+<p>Science / Commerce</p>
+</div>
+
+<div class="class-card">
+<span>12</span>
+<h3>Class 12</h3>
+<p>Board + Entrance</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SUBJECTS -->
+<section class="section">
+
+<div class="section-title">
+
+<p>SUBJECTS</p>
+
+<h2>Class-wise Subjects</h2>
+
+</div>
+
+
+<div class="subject-table">
+
+<div class="subject-row heading">
+<div>Class</div>
+<div>Subjects</div>
+</div>
+
+<div class="subject-row">
+<div>6 – 8</div>
+<div>
+Mathematics, Science, English, Social Science
+</div>
+</div>
+
+<div class="subject-row">
+<div>9 – 10</div>
+<div>
+Mathematics, Science, English, Social Science
+</div>
+</div>
+
+<div class="subject-row">
+<div>11 – 12 Science</div>
+<div>
+Physics, Chemistry, Mathematics, Biology
+</div>
+</div>
+
+<div class="subject-row">
+<div>11 – 12 Commerce</div>
+<div>
+Accountancy, Business Studies, Economics, Mathematics
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FEES -->
+<section id="fees" class="section light">
+
+<div class="section-title">
+
+<p>FEE STRUCTURE</p>
+
+<h2>Affordable Learning Plans</h2>
+
+</div>
+
+
+<div class="fee-grid">
+
+
+<div class="fee-card">
+
+<h3>Class 6 – 8</h3>
+
+<h2>
+₹1,200<span>/month</span>
+</h2>
+
+<p>All Major Subjects</p>
+<p>Weekly Tests</p>
+<p>Doubt Sessions</p>
+
+<button onclick="scrollToAdmission()">
+Enquire Now
+</button>
+
+</div>
+
+
+<div class="fee-card featured">
+
+<div class="popular">
+POPULAR
+</div>
+
+<h3>Class 9 – 10</h3>
+
+<h2>
+₹1,500<span>/month</span>
+</h2>
+
+<p>Complete Board Preparation</p>
+<p>Study Material</p>
+<p>Weekly Tests</p>
+
+<button onclick="scrollToAdmission()">
+Enquire Now
+</button>
+
+</div>
+
+
+<div class="fee-card">
+
+<h3>Class 11 – 12</h3>
+
+<h2>
+₹2,000<span>/month</span>
+</h2>
+
+<p>Stream-wise Subjects</p>
+<p>Study Material</p>
+<p>Regular Tests</p>
+
+<button onclick="scrollToAdmission()">
+Enquire Now
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NOTES -->
+<section id="notes" class="section">
+
+<div class="section-title">
+
+<p>LEARNING RESOURCES</p>
+
+<h2>Notes & Study Materials</h2>
+
+</div>
+
+
+<div class="notes-grid">
+
+<div class="note-card">
+
+<span>📘</span>
+
+<h3>Class 10 Mathematics</h3>
+
+<p>
+Important formulas and practice questions.
+</p>
+
+<a href="#" onclick="downloadDemo('Class 10 Mathematics Notes')">
+Download
+</a>
+
+</div>
+
+
+<div class="note-card">
+
+<span>🔬</span>
+
+<h3>Class 10 Science</h3>
+
+<p>
+Chapter-wise revision notes.
+</p>
+
+<a href="#" onclick="downloadDemo('Class 10 Science Notes')">
+Download
+</a>
+
+</div>
+
+
+<div class="note-card">
+
+<span>📚</span>
+
+<h3>Class 12 Physics</h3>
+
+<p>
+Important concepts and formulas.
+</p>
+
+<a href="#" onclick="downloadDemo('Class 12 Physics Notes')">
+Download
+</a>
+
+</div>
+
+
+<div class="note-card">
+
+<span>📝</span>
+
+<h3>Sample Test Papers</h3>
+
+<p>
+Practice papers for exam preparation.
+</p>
+
+<a href="#" onclick="downloadDemo('Sample Test Papers')">
+Download
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TEACHERS -->
+<section id="teachers" class="section light">
+
+<div class="section-title">
+
+<p>OUR FACULTY</p>
+
+<h2>Meet Our Teachers</h2>
+
+</div>
+
+
+<div class="teacher-grid">
+
+
+<div class="teacher-card">
+
+<div class="teacher-photo">
+👨‍🏫
+</div>
+
+<h3>Rahul Sharma</h3>
+
+<p>Mathematics Faculty</p>
+
+<small>
+10+ Years Experience
+</small>
+
+</div>
+
+
+<div class="teacher-card">
+
+<div class="teacher-photo">
+👩‍🏫
+</div>
+
+<h3>Priya Singh</h3>
+
+<p>Science Faculty</p>
+
+<small>
+8+ Years Experience
+</small>
+
+</div>
+
+
+<div class="teacher-card">
+
+<div class="teacher-photo">
+👨‍🏫
+</div>
+
+<h3>Amit Kumar</h3>
+
+<p>Physics Faculty</p>
+
+<small>
+7+ Years Experience
+</small>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section class="section">
+
+<div class="section-title">
+
+<p>STUDENT VOICES</p>
+
+<h2>What Our Students Say</h2>
+
+</div>
+
+
+<div class="testimonial-grid">
+
+
+<div class="testimonial">
+
+<div>★★★★★</div>
+
+<p>
+"The teachers explain every concept in a very simple way.
+My confidence in Mathematics has improved a lot."
+</p>
+
+<h4>— Ananya, Class 10</h4>
+
+</div>
+
+
+<div class="testimonial">
+
+<div>★★★★★</div>
+
+<p>
+"Regular tests and doubt sessions helped me prepare better
+for my board examinations."
+</p>
+
+<h4>— Rohan, Class 12</h4>
+
+</div>
+
+
+<div class="testimonial">
+
+<div>★★★★★</div>
+
+<p>
+"The environment is friendly and teachers give personal
+attention to students."
+</p>
+
+<h4>— Aman, Class 9</h4>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ADMISSION -->
+<section id="admission" class="section admission">
+
+<div class="section-title">
+
+<p>ADMISSIONS OPEN</p>
+
+<h2>Start Your Learning Journey</h2>
+
+</div>
+
+
+<form id="admissionForm">
+
+<input
+type="text"
+id="name"
+placeholder="Student Name"
+required
+>
+
+<input
+type="tel"
+id="phone"
+placeholder="Phone Number"
+required
+>
+
+<select id="className" required>
+
+<option value="">
+Select Class
+</option>
+
+<option>Class 6</option>
+<option>Class 7</option>
+<option>Class 8</option>
+<option>Class 9</option>
+<option>Class 10</option>
+<option>Class 11</option>
+<option>Class 12</option>
+
+</select>
+
+
+<textarea
+id="message"
+placeholder="Your message"
+></textarea>
+
+
+<button type="submit" class="btn">
+Submit Enquiry
+</button>
+
+<p id="formMessage"></p>
+
+</form>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
+<div>
+
+<p class="small-title">
+GET IN TOUCH
+</p>
+
+<h2>
+Let's Start Learning Together
+</h2>
+
+</div>
+
+
+<div class="contact-info">
+
+<p>
+📞
+<a href="tel:+919876543210">
++91 98765 43210
+</a>
+</p>
+
+<p>
+✉️
+<a href="mailto:firstideacoaching.demo@gmail.com">
+firstideacoaching.demo@gmail.com
+</a>
+</p>
+
+<p>
+📍 21 Knowledge Park, Patna, Bihar
+</p>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<p>
+©️ 2026 First Idea Coaching. All Rights Reserved.
+</p>
+
+<p>
+Learn Today, Lead Tomorrow.
+</p>
+
+</footer>
+
+
+<script>
+
+// Mobile menu
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList
+    .toggle("active");
+
+}
+
+
+// Close mobile menu after clicking
+document
+.querySelectorAll(".nav-links a")
+.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        document
+        .getElementById("navLinks")
+        .classList
+        .remove("active");
+
+    });
+
+});
+
+
+// Scroll to admission
+function scrollToAdmission(){
+
+    document
+    .getElementById("admission")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+// Demo download
+function downloadDemo(name){
+
+    alert(
+        name +
+        " is a demo download. Add your PDF file later."
+    );
+
+}
+
+
+// Admission form
+document
+.getElementById("admissionForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const name =
+    document.getElementById("name").value;
+
+    const message =
+    document.getElementById("formMessage");
+
+    message.textContent =
+    "Thank you, " +
+    name +
+    "! Your enquiry has been received.";
+
+    message.style.color="#16a34a";
+
+    this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
